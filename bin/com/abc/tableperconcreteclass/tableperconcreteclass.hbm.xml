@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+ 
+<hibernate-mapping>
+	<class name="com.abc.tableperconcreteclass.LibraryUser" table="user">
+		<id name="id"></id>
+		<property name="name"></property>
+		<property name="mailid"></property>
+	<union-subclass name="com.abc.tableperconcreteclass.Student" table="student">
+		<property name="noofbooks"></property>
+	</union-subclass>
+	
+	<union-subclass name="com.abc.tableperconcreteclass.Faculty" table="faculty">
+		<property name="course"></property>
+		<property name="department"></property>
+	</union-subclass>
+	</class>
+</hibernate-mapping>	

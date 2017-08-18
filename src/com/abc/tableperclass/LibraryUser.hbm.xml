@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+ 
+<hibernate-mapping>
+	<class name="com.abc.tableperclass.LibraryUser" table="user" discriminator-value="libuser">
+		<id name="id"></id>
+		<discriminator column="user_type"></discriminator>
+		<property name="name"></property>
+		<property name="mailid"></property>
+		
+		<subclass name="com.abc.tableperclass.Student" discriminator-value="student">
+			<property name="noofbooks"></property>
+		</subclass>
+		
+		<subclass name="com.abc.tableperclass.Faculty" discriminator-value="faculty">
+			<property name="course"></property>
+			<property name="department"></property>
+		</subclass>
+	</class>
+</hibernate-mapping>
